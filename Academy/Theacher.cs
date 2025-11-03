@@ -1,0 +1,47 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Academy
+{
+	internal class Theacher:Human
+	{
+		public string Speciality { get; set; }
+		public int Experience { get; set; }
+		public Theacher
+			(
+			string lastName, string firstName, int age,
+			string speciality, int experience
+			): base(lastName, firstName, age)
+		{
+            Speciality = speciality;
+			Experience = experience;
+			Console.WriteLine($"TConstructor:\t{GetHashCode()}");
+		}
+		public Theacher(Human human, string speciality, int experience ) : base(human)
+		{
+			Speciality = speciality;
+			Experience = experience;
+			Console.WriteLine($"TConstructor:\t{GetHashCode()}");
+		}
+		~Theacher()
+		{
+			Console.WriteLine($"TDestructor:\t{GetHashCode()}");
+
+	    }
+		public override void Info()
+		{
+			base.Info();
+			Console.WriteLine($"{Speciality} {Experience}");
+		}
+		public override string ToString()
+		{
+			return
+				base.ToString() + 
+				$"{Speciality.PadRight(16)} {Experience.ToString().PadRight(5)}";
+		}
+
+	}
+}
