@@ -9,7 +9,7 @@ namespace Academy
 	internal class Student:Human
 	{
 		public string Spesiality { get; set; }
-		public string Groupe { get; set; }
+		public string Group { get; set; }
 		public double Rating { get; set; }
 		public double Attendance { get; set; }
 		public Student
@@ -32,7 +32,7 @@ namespace Academy
 		}
 		public Student(Student other) : base(other)
 		{
-			Init(other.Spesiality,other.Groupe,other.Rating,other.Attendance);
+			Init(other.Spesiality,other.Group,other.Rating,other.Attendance);
 			Console.WriteLine($"SConstructor:\t{GetHashCode()}");
 
 		}
@@ -44,7 +44,7 @@ namespace Academy
 		void Init(string spesiality, string group, double rating, double attendance)
 		{
 			Spesiality = spesiality;
-			Groupe = group;
+			Group = group;
 			Rating = rating;
 			Attendance = attendance;
 
@@ -53,19 +53,31 @@ namespace Academy
 		public override void Info()
 		{
 			base.Info();
-			Console.WriteLine($"{Spesiality} {Groupe} {Rating} {Attendance}");
+			Console.WriteLine($"{Spesiality} {Group} {Rating} {Attendance}");
 		}
 		public override string ToString()
 		{
 			return
 				base.ToString() +
-				$"{Spesiality.PadRight(24)} {Groupe.PadRight(8)}{Rating.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
+				$"{Spesiality.PadRight(24)} {Group.PadRight(8)}{Rating.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
 		}
 		public override string ToStringCSV()
 		{
 			
 				return base.ToStringCSV()
-				    + $",{Spesiality},{Groupe},{Rating},{Attendance}";
+				    + $",{Spesiality},{Group},{Rating},{Attendance}";
+		}
+		public override Human Init(string[] values)
+		{
+			
+				{
+				base.Init(values);
+				Spesiality=values[4];
+				Group=values[5];
+				Rating = Convert.ToDouble(values[6]);
+				Attendance = Convert.ToDouble(values[7]);
+				return this;
+			}
 		}
 	}
 }
