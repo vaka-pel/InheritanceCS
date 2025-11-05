@@ -39,6 +39,9 @@ namespace Academy
 				base.ToString() + 
 				$"{Subject.PadRight(20)}";
 		}
-
+		public override string ToStringCSV()
+		{
+			return base.ToStringCSV()+$",{Subject}";
+		}
 	}
 }

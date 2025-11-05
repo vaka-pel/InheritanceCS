@@ -59,7 +59,13 @@ namespace Academy
 		{
 			return
 				base.ToString() +
-				$"{Spesiality.PadRight(16)} {Groupe.PadRight(8)}{Rating.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
+				$"{Spesiality.PadRight(24)} {Groupe.PadRight(8)}{Rating.ToString().PadRight(8)}{Attendance.ToString().PadRight(8)}";
+		}
+		public override string ToStringCSV()
+		{
+			
+				return base.ToStringCSV()
+				    + $",{Spesiality},{Groupe},{Rating},{Attendance}";
 		}
 	}
 }
