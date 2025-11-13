@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using System.Runtime.InteropServices;   //DllImport
+using System.Runtime.InteropServices;   //DllImport для рисования в консоли
 using System.Windows.Forms;
+
 
 namespace AbstractGeometry
 {
@@ -42,9 +43,9 @@ namespace AbstractGeometry
 #endif
 			Shape[] shapes =
 			{
-				new Rectangle(100, 40, 300, 50, 3, Color.AliceBlue),
-				new Square(70, 500, 50, 5, Color.Red),
-				new Circle(100, 700, 50, 5, Color.Red),
+				new Rectangle(120, 70, 200, 70, 3, Color.AliceBlue),
+				new Square(90, 600, 70, 5, Color.Red),
+				new Circle(100, 700, 70, 5, Color.Red),
 				new IsoscelesTriangle(75, 150, 400, 200, 3, Color.Green),
 				new EquilateralTriangle(50, 550, 200, 4, Color.Green),
 
@@ -52,9 +53,17 @@ namespace AbstractGeometry
 			};
 			for (int i = 0; i < shapes.Length; i++)
 			{
+				if (!(shapes[i] is IHaveDiameter))
+					shapes[i].Draw(e);
+
 				if (!(shapes[i] is IHaveDiagonal))
 					shapes[i].Draw(e);
+
+				if (!(shapes[i] is IHaveHeight))
+					shapes[i].Draw(e);
 			}
+			
+			
 
 		}
 		[DllImport("kernel32.dll")]

@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Drawing.Configuration;
 
 namespace AbstractGeometry
 {
-	class Circle : Shape
+	class Circle : Shape, IHaveDiameter
 	{
 		double radius;
 		public double Radius
@@ -21,6 +22,7 @@ namespace AbstractGeometry
 		{
 			Radius = radius;
 		}
+		public double GetDiameter() => 2 * Radius;
 		public override double GetArea() => Math.PI * Math.Pow(Radius, 2);
 		public override double GetPerimeter() => 2 * Math.PI * Radius;
 		public override void Draw(PaintEventArgs e)
@@ -31,8 +33,9 @@ namespace AbstractGeometry
 		public override void Info(PaintEventArgs e)
 		{
 			Console.WriteLine($"{this.GetType()}");
-			Console.WriteLine($"Radius:\t{Radius}");
+			Console.WriteLine($"Радиус круга:\t{Radius}");
 			base.Info(e);
+			Draw(e);
 		}
 	}
 }

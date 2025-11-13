@@ -33,24 +33,20 @@ namespace AbstractGeometry
 		public override double GetArea() => Width * Height;
 		public override double GetPerimeter() => 2 * (Width + Height);
 		public double GetDiagonal() => Math.Sqrt(Math.Pow(Width, 2) + Math.Pow(Height, 2));
+		public void DrawDiagonal(System.Windows.Forms.PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, 1);
+			e.Graphics.DrawLine(pen,StartX, StartY, StartX + (int)Width, StartY + (int)Height);
+
+		}
 		public override void Draw(System.Windows.Forms.PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color, LineWidth);
 			SolidBrush brush = new SolidBrush(Color);
 			e.Graphics.DrawRectangle(pen, StartX, StartY, (float)Width, (float)Height);
+			DrawDiagonal(e);
 			//e.Graphics.FillRectangle(brush, StartX, StartY, (float)Width, (float)Height);
 			
-		}
-		public void DrawDiagonal(System.Windows.Forms.PaintEventArgs e)
-		{
-			Pen pen = new Pen(Color, 1);
-			e.Graphics.DrawLine
-				(
-				pen,
-				StartX, StartY,
-				StartX + (int)Width, StartY + (int)Height
-				);
-
 		}
 		public override void Info(System.Windows.Forms.PaintEventArgs e)
 		{

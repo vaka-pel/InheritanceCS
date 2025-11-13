@@ -33,6 +33,7 @@ namespace AbstractGeometry
 			Pen pen = new Pen(Color);
 			Brush brush = new SolidBrush(Color);
 			e.Graphics.DrawRectangle(pen, StartX, StartY, (float)Side, (float)Side);
+			DrawDiagonal(e);
 			//e.Graphics.FillRectangle(brush, StartX, StartY, (float)Side, (float)Side);
 		}
 		

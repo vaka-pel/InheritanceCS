@@ -67,7 +67,7 @@ namespace AbstractGeometry
 		{
 			Console.WriteLine($"Площадь фигуры:{GetArea()}");
 			Console.WriteLine($"Периметр фигуры:{GetPerimeter()}");
-			Draw(e);
+			//Draw(e);
 		}
 	}
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace AbstractGeometry
 {
@@ -54,6 +55,14 @@ namespace AbstractGeometry
 					new Point(StartX+(int)Base/2, StartY)
 				};
 			e.Graphics.DrawPolygon(pen, vertices);
+			DrawHeight(e);
+			
+		}
+		public override void DrawHeight(PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, LineWidth);
+			e.Graphics.DrawLine(pen, StartX + (float)@Base / 2, StartY + (float)@Side,
+				StartX + (float)@Base / 2, (float)(StartY + @Side - GetHeight()));
 		}
 		public override void Info(PaintEventArgs e)
 		{
