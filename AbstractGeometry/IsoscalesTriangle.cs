@@ -50,12 +50,12 @@ namespace AbstractGeometry
 			Pen pen = new Pen(Color, LineWidth);
 			Point[] vertices = new Point[]
 				{
-					new Point(StartX, StartY+(int)GetHeight()),
-					new Point(StartX+(int)Base, StartY+(int)GetHeight()),
-					new Point(StartX+(int)Base/2, StartY)
+					new Point(StartX, StartY+(int)@Side),
+					new Point(StartX+(int)Base, StartY+(int)@Side),
+					new Point(StartX+(int)Base/2, StartY + (int)Side - (int)GetHeight())
 				};
-			e.Graphics.DrawPolygon(pen, vertices);
 			DrawHeight(e);
+			e.Graphics.DrawPolygon(pen, vertices);
 			
 		}
 		public override void DrawHeight(PaintEventArgs e)

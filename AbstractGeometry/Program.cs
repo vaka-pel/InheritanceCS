@@ -45,7 +45,7 @@ namespace AbstractGeometry
 			{
 				new Rectangle(120, 70, 200, 70, 3, Color.AliceBlue),
 				new Square(90, 600, 70, 5, Color.Red),
-				new Circle(100, 700, 70, 5, Color.Red),
+				new Circle(100, 700, 70, 5, Color.Yellow),
 				new IsoscelesTriangle(75, 150, 400, 200, 3, Color.Green),
 				new EquilateralTriangle(50, 550, 200, 4, Color.Green),
 

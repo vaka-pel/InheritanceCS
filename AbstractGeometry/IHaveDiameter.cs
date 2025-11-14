@@ -10,6 +10,7 @@ namespace AbstractGeometry
 	internal interface IHaveDiameter
 	{
 		double GetDiameter();
-		
+		void DrawDiameter(PaintEventArgs e);
+	
 	}
 }
